@@ -2,6 +2,7 @@
  * This example turns the ESP32 into a Bluetooth LE keyboard that writes the words, presses Enter, presses a media key and then Ctrl+Alt+Delete
  */
 #include <BleKeyboard.h>
+#include "passwords.h"
 
 BleKeyboard bleKeyboard;
 
@@ -47,7 +48,7 @@ void loop() {
       // only toggle the LED if the new button state is HIGH
       if (buttonState == HIGH) {
         Serial.println("Sending espkeys32...");
-        bleKeyboard.print("MyPassWord123");
+        bleKeyboard.print(PASSWORD_01);
         bleKeyboard.write(KEY_RETURN);
       }
     }
